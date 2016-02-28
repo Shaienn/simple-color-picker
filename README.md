@@ -7,7 +7,7 @@ Simple Color picker in common.js.
 [demo](http://superguigui.github.io/simple-color-picker)
 
 ## Installation
-[![NPM](https://nodei.co/npm/simple-color-picker.png)](https://nodei.co/npm/simple-color-picker/)
+[![NPM](https://nodei.co/npm/simple-color-picker-jq.png)](https://nodei.co/npm/simple-color-picker-jq/)
 
 ## Quickstart
 ```javascript
