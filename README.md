@@ -1,6 +1,6 @@
 [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
-# simple-color-picker
+# simple-color-picker (JQuery mod)
 
 Simple Color picker in common.js.
 
@@ -11,7 +11,7 @@ Simple Color picker in common.js.
 
 ## Quickstart
 ```javascript
-var ColorPicker = require('simple-color-picker');
+var ColorPicker = require('simple-color-picker-jq');
 
 var colorPicker = new ColorPicker();
 ```
@@ -31,7 +31,7 @@ Options you can pass to constructor in an object like so :
 var colorPicker = new ColorPicker({
   color: '#FF0000',
   background: '#454545',
-  el: document.body,
+  el: $('body'),
   width: 200,
   height: 200
 });
@@ -46,7 +46,7 @@ The default color that the colorpicker will display. Default is #FFFFFF. It can 
 The background color of the colorpicker. Default is transparent. It can be a hexadecimal number or an hex String.
 
 ### `el`
-A dom node to add the colorpicker to. You can also use `colorPicker.appendTo(domNode)` afterwards if you prefer.
+A jQuery element to add the colorpicker to. You can also use `colorPicker.appendTo(jQuery element)` afterwards if you prefer.
 
 ### `width`
 Desired width of the color picker. Default is 175.
@@ -56,8 +56,8 @@ Desired height of the color picker. Default is 150.
 
 ## Methods
 
-### `.appendTo(domElement)`
-Add the colorPicker instance to a domElement.
+### `.appendTo(jQuery element)`
+Add the colorPicker instance to a jQuery element.
 
 ### `.remove()`
 Removes colorpicker from is parent and kill all listeners. Call this method for proper destroy.
