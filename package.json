@@ -1,6 +1,6 @@
 {
   "name": "simple-color-picker-jq",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Simple Color picker in common.js. (Jquery mod)",
   "main": "./index.js",
   "typings": "./index.d.ts",

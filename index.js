@@ -321,18 +321,14 @@ SimpleColorPicker.prototype._onSaturationMouseDown = function (e) {
     var yPos = (e.type.indexOf('touch') === 0) ? e.touches[0].clientY : e.clientY;
     this._moveSelectorTo(xPos - sbOffset.left, yPos - sbOffset.top);
     this._updateColorFromPosition();
-    this.on('mouseup', this._onHueMouseUp);
-    this.on('mousemove', this._onHueMouseMove);
-
-//    window.addEventListener('mouseup', this._onSaturationMouseUp);
-//    window.addEventListener('touchend', this._onSaturationMouseUp);
-//    window.addEventListener('mousemove', this._onSaturationMouseMove);
-//    window.addEventListener('touchmove', this._onSaturationMouseMove);
-
+    this.$el.on('mouseup', this._onSaturationMouseUp);
+    this.$el.on('mousemove', this._onSaturationMouseMove);
     e.preventDefault();
+    e.stopPropagation();
 };
 
 SimpleColorPicker.prototype._onSaturationMouseMove = function (e) {
+    console.log('move');
     var sbOffset = this.$saturation[0].getBoundingClientRect();
     var xPos = (e.type.indexOf('touch') === 0) ? e.touches[0].clientX : e.clientX;
     var yPos = (e.type.indexOf('touch') === 0) ? e.touches[0].clientY : e.clientY;
@@ -341,13 +337,10 @@ SimpleColorPicker.prototype._onSaturationMouseMove = function (e) {
 };
 
 SimpleColorPicker.prototype._onSaturationMouseUp = function () {
+    console.log('up');
     this.choosing = false;
-//    window.removeEventListener('mouseup', this._onSaturationMouseUp);
-//    window.removeEventListener('touchend', this._onSaturationMouseUp);
-//    window.removeEventListener('mousemove', this._onSaturationMouseMove);
-//    window.removeEventListener('touchmove', this._onSaturationMouseMove);
-    this.off('mouseup', this._onHueMouseUp);
-    this.off('mousemove', this._onHueMouseMove);
+    this.$el.off('mouseup', this._onSaturationMouseUp);
+    this.$el.off('mousemove', this._onSaturationMouseMove);
 };
 
 SimpleColorPicker.prototype._onHueMouseDown = function (e) {
@@ -356,13 +349,11 @@ SimpleColorPicker.prototype._onHueMouseDown = function (e) {
     var yPos = (e.type.indexOf('touch') === 0) ? e.touches[0].clientY : e.clientY;
     this._moveHueTo(yPos - hOffset.top);
     this._updateHueFromPosition();
-//    window.addEventListener('mouseup', this._onHueMouseUp);
-//    window.addEventListener('touchend', this._onHueMouseUp);
-//    window.addEventListener('mousemove', this._onHueMouseMove);
-//    window.addEventListener('touchmove', this._onHueMouseMove);
-    this.on('mouseup', this._onHueMouseUp);
-    this.on('mousemove', this._onHueMouseMove);
+    this.$el.on('mouseup', this._onHueMouseUp);
+    this.$el.on('mousemove', this._onHueMouseMove);
     e.preventDefault();
+    e.stopPropagation();
+
 };
 
 SimpleColorPicker.prototype._onHueMouseMove = function (e) {
@@ -374,12 +365,8 @@ SimpleColorPicker.prototype._onHueMouseMove = function (e) {
 
 SimpleColorPicker.prototype._onHueMouseUp = function () {
     this.choosing = false;
-    this.off('mouseup', this._onHueMouseUp);
-    this.off('mousemove', this._onHueMouseMove);
-//    window.removeEventListener('mouseup', this._onHueMouseUp);
-//    window.removeEventListener('touchend', this._onHueMouseUp);
-//    window.removeEventListener('mousemove', this._onHueMouseMove);
-//    window.removeEventListener('touchmove', this._onHueMouseMove);
+    this.$el.off('mouseup', this._onHueMouseUp);
+    this.$el.off('mousemove', this._onHueMouseMove);
 };
 
 module.exports = SimpleColorPicker;
